@@ -294,6 +294,39 @@ Forward Modeling
 
 
 
+.. _sphx_glr_gallery_visualization:
+
+3D visualizations
+-----------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The harmonica.prism_layer allows to easily create a layer of prisms whose top and bottom bounda...">
+
+.. only:: html
+
+ .. figure:: /gallery/visualization/images/thumb/sphx_glr_prism_layer_pyvista_thumb.png
+     :alt: Plot a prism layer in 3D
+
+     :ref:`sphx_glr_gallery_visualization_prism_layer_pyvista.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/visualization/prism_layer_pyvista
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
 .. only:: html
 
  .. rst-class:: sphx-glr-signature

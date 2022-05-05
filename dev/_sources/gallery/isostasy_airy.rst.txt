@@ -39,9 +39,10 @@ isostatic Moho depth of Africa.
 
 
 
-.. image:: /gallery/images/sphx_glr_isostasy_airy_001.png
-    :alt: Airy isostatic Moho depth of Africa
-    :class: sphx-glr-single-img
+.. image-sg:: /gallery/images/sphx_glr_isostasy_airy_001.png
+   :alt: Airy isostatic Moho depth of Africa
+   :srcset: /gallery/images/sphx_glr_isostasy_airy_001.png
+   :class: sphx-glr-single-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -135,7 +136,7 @@ isostatic Moho depth of Africa.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.201 seconds)
+   **Total running time of the script:** ( 0 minutes  1.169 seconds)
 
 
 .. _sphx_glr_download_gallery_isostasy_airy.py:
