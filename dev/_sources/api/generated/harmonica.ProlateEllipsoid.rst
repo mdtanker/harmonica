@@ -1,0 +1,71 @@
+harmonica.ProlateEllipsoid
+==========================
+
+.. currentmodule:: harmonica
+
+.. autoclass:: ProlateEllipsoid
+
+
+
+
+
+
+
+
+
+
+
+Attributes
+----------
+
+
+
+.. autoattribute:: ProlateEllipsoid.a
+
+
+
+.. autoattribute:: ProlateEllipsoid.b
+
+
+
+.. autoattribute:: ProlateEllipsoid.c
+
+
+
+.. autoattribute:: ProlateEllipsoid.density
+
+
+
+.. autoattribute:: ProlateEllipsoid.remanent_mag
+
+
+
+.. autoattribute:: ProlateEllipsoid.roll
+
+
+
+.. autoattribute:: ProlateEllipsoid.rotation_matrix
+
+
+
+.. autoattribute:: ProlateEllipsoid.susceptibility
+
+
+
+.. autoattribute:: ProlateEllipsoid.yaw
+
+
+
+.. autoattribute:: ProlateEllipsoid.pitch
+
+
+
+
+
+----
+
+.. include:: backreferences/harmonica.ProlateEllipsoid.examples
+
+.. raw:: html
+
+     <div style='clear:both'></div>
