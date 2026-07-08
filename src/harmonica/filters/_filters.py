@@ -232,7 +232,7 @@ def upward_continuation_kernel(fft_grid, height_displacement):
     return da_filter
 
 
-def gaussian_lowpass_kernel(fft_grid, wavelength):
+def gaussian_lowpass_kernel(fft_grid, wavelength, angle_bounds=None):
     r"""
     Filter for Gaussian low-pass in frequency domain.
 
@@ -292,10 +292,32 @@ def gaussian_lowpass_kernel(fft_grid, wavelength):
     da_filter = np.exp(
         -(k_easting**2 + k_northing**2) / (2 * (2 * np.pi / wavelength) ** 2)
     )
+    if angle_bounds is not None:
+        theta = np.degrees(np.arctan2(k_northing, k_easting))
+        theta = (theta + 360) % 360
+        amin, amax = angle_bounds
+        amin %= 360
+        amax %= 360
+
+        def sector_mask(theta, amin, amax):
+            if amin <= amax:
+                return (theta >= amin) & (theta <= amax)
+            return (theta >= amin) | (theta <= amax)
+
+        # include opposite direction for symmetry
+        mask = (
+            sector_mask(theta, amin, amax)
+            | sector_mask(theta, (amin + 180) % 360, (amax + 180) % 360)
+        )
+        mask = mask.transpose()
+
+        # only filter inside the sector
+        da_filter = da_filter.where(mask, 1)
+    da_filter.plot().axes.set_title(f'lowpass {wavelength}')
     return da_filter
 
 
-def gaussian_highpass_kernel(fft_grid, wavelength):
+def gaussian_highpass_kernel(fft_grid, wavelength, angle_bounds=None):
     r"""
     Filter for Gaussian high-pass in frequency domain.
 
@@ -355,6 +377,28 @@ def gaussian_highpass_kernel(fft_grid, wavelength):
     da_filter = 1 - np.exp(
         -(k_easting**2 + k_northing**2) / (2 * (2 * np.pi / wavelength) ** 2)
     )
+    if angle_bounds is not None:
+        theta = np.degrees(np.arctan2(k_northing, k_easting))
+        theta = (theta + 360) % 360
+        amin, amax = angle_bounds
+        amin %= 360
+        amax %= 360
+
+        def sector_mask(theta, amin, amax):
+            if amin <= amax:
+                return (theta >= amin) & (theta <= amax)
+            return (theta >= amin) | (theta <= amax)
+
+        # include opposite direction for symmetry
+        mask = (
+            sector_mask(theta, amin, amax)
+            | sector_mask(theta, (amin + 180) % 360, (amax + 180) % 360)
+        )
+        mask = mask.transpose()
+
+        # only filter inside the sector
+        da_filter = da_filter.where(mask, 1)
+    da_filter.plot().axes.set_title(f'highpass {wavelength}')
     return da_filter
 
 

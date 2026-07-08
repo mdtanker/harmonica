@@ -283,7 +283,7 @@ def upward_continuation(grid, height_displacement, *, pad=True, pad_kwargs=None)
     )
 
 
-def gaussian_lowpass(grid, wavelength, *, pad=True, pad_kwargs=None):
+def gaussian_lowpass(grid, wavelength, *, angle_bounds=None, pad=True, pad_kwargs=None):
     """
     Calculate the Gaussian low-pass of a potential field grid.
 
@@ -330,11 +330,11 @@ def gaussian_lowpass(grid, wavelength, *, pad=True, pad_kwargs=None):
         gaussian_lowpass_kernel,
         pad=pad,
         pad_kwargs=pad_kwargs,
-        filter_kwargs={"wavelength": wavelength},
+        filter_kwargs={"wavelength": wavelength, "angle_bounds": angle_bounds},
     )
 
 
-def gaussian_highpass(grid, wavelength, *, pad=True, pad_kwargs=None):
+def gaussian_highpass(grid, wavelength, *, angle_bounds=None, pad=True, pad_kwargs=None):
     """
     Calculate the Gaussian high-pass of a potential field grid.
 
@@ -381,7 +381,7 @@ def gaussian_highpass(grid, wavelength, *, pad=True, pad_kwargs=None):
         gaussian_highpass_kernel,
         pad=pad,
         pad_kwargs=pad_kwargs,
-        filter_kwargs={"wavelength": wavelength},
+        filter_kwargs={"wavelength": wavelength, "angle_bounds": angle_bounds},
     )
 
 
